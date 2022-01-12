@@ -1,10 +1,13 @@
 // functions3.rs
 // Make me compile! Execute `rustlings hint functions3` for hints :)
 
-// I AM NOT DONE
+// Hint
+//
+// This time, the function *declaration* is okay, but there's something wrong
+// with the place where we're calling the function.
 
 fn main() {
-    call_me();
+    call_me(20);
 }
 
 fn call_me(num: u32) {
