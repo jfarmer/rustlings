@@ -4,8 +4,6 @@
 // freshly created vector from fill_vec to its caller.
 // Execute `rustlings hint move_semantics4` for hints!
 
-// I AM NOT DONE
-
 // Hint
 //
 // Stop reading whenever you feel like you have enough direction :) Or try
