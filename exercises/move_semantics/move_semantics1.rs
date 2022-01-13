@@ -1,12 +1,17 @@
 // move_semantics1.rs
 // Make me compile! Execute `rustlings hint move_semantics1` for hints :)
 
-// I AM NOT DONE
+// Hint
+//
+// So you've got the "cannot borrow immutable local variable `vec1` as mutable" error on line 13,
+// right? The fix for this is going to be adding one keyword, and the addition is NOT on line 13
+// where the error is.
+
 
 fn main() {
     let vec0 = Vec::new();
 
-    let vec1 = fill_vec(vec0);
+    let mut vec1 = fill_vec(vec0);
 
     println!("{} has length {} content `{:?}`", "vec1", vec1.len(), vec1);
 
