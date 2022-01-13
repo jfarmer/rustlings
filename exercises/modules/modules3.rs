@@ -5,10 +5,15 @@
 // from the std::time module. Bonus style points if you can do it with one line!
 // Make me compile! Execute `rustlings hint modules3` for hints :)
 
-// I AM NOT DONE
+// Hint
+//
+// UNIX_EPOCH and SystemTime are declared in the std::time module. Add a use statement
+// for these two to bring them into scope. You can use nested paths or the glob
+// operator to bring these two in using only one line.
+
 
 // TODO: Complete this use statement
-use ???
+use std::time::{UNIX_EPOCH, SystemTime};
 
 fn main() {
     match SystemTime::now().duration_since(UNIX_EPOCH) {
