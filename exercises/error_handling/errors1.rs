@@ -6,14 +6,28 @@
 // this function to have.
 // Execute `rustlings hint errors1` for hints!
 
-// I AM NOT DONE
+// Hint
+//
+// `Err` is one of the variants of `Result`, so what the 2nd test is saying
+// is that `generate_nametag_text` should return a `Result` instead of an
+// `Option`.
 
-pub fn generate_nametag_text(name: String) -> Option<String> {
+// To make this change, you'll need to:
+//    - update the return type in the function signature to be a Result<String, String> that
+//      could be the variants `Ok(String)` and `Err(String)`
+//    - change the body of the function to return `Ok(stuff)` where it currently
+//      returns `Some(stuff)`
+//    - change the body of the function to return `Err(error message)` where it
+//      currently returns `None`
+//    - change the first test to expect `Ok(stuff)` where it currently expects
+//      `Some(stuff)`.
+
+
+pub fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.len() > 0 {
-        Some(format!("Hi! My name is {}", name))
+        Ok(format!("Hi! My name is {}", name))
     } else {
-        // Empty names aren't allowed.
-        None
+        Err(String::from("`name` was empty; it must be nonempty."))
     }
 }
 
@@ -28,7 +42,7 @@ mod tests {
     fn generates_nametag_text_for_a_nonempty_name() {
         assert_eq!(
             generate_nametag_text("Beyoncé".into()),
-            Some("Hi! My name is Beyoncé".into())
+            Ok("Hi! My name is Beyoncé".into())
         );
     }
 
