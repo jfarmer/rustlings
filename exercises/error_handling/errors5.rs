@@ -4,14 +4,37 @@
 // It won't compile right now! Why?
 // Execute `rustlings hint errors5` for hints!
 
-// I AM NOT DONE
+// Hint
+//
+// Hint: There are two different possible `Result` types produced within
+// `main()`, which are propagated using `?` operators. How do we declare a
+// return type from `main()` that allows both?
+
+// Another hint: under the hood, the `?` operator calls `From::from`
+// on the error value to convert it to a boxed trait object, a
+// `Box<dyn error::Error>`, which is polymorphic-- that means that lots of
+// different kinds of errors can be returned from the same function because
+// all errors act the same since they all implement the `error::Error` trait.
+// Check out this section of the book:
+// https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+
+// This exercise uses some concepts that we won't get to until later in the
+// course, like `Box` and the `From` trait. It's not important to understand
+// them in detail right now, but you can read ahead if you like.
+
+// Read more about boxing errors:
+// https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html
+
+// Read more about using the `?` operator with boxed errors:
+// https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+
 
 use std::error;
 use std::fmt;
 use std::num::ParseIntError;
 
 // TODO: update the return type of `main()` to make this compile.
-fn main() -> Result<(), ParseIntError> {
+fn main() -> Result<(), Box<dyn error::Error>> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
