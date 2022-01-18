@@ -3,14 +3,19 @@
 
 // Execute `rustlings hint generics2` for hints!
 
-// I AM NOT DONE
+// Hint
+//
+// Currently we are wrapping only values of type 'u32'.
+// Maybe we could update the explicit references to this data type somehow?
 
-struct Wrapper {
-    value: u32,
+// If you are still stuck https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
+
+struct Wrapper<T> {
+    value: T,
 }
 
-impl Wrapper {
-    pub fn new(value: u32) -> Self {
+impl<T> Wrapper<T> {
+    pub fn new(value: T) -> Self {
         Wrapper { value }
     }
 }
